@@ -1,0 +1,1233 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / jQuery library
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+      :cdata
+    / Latest compiled JavaScript
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+      :cdata
+    :css
+      @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+      @font-face {
+        font-family: 'Constantia Bold';
+        src: url('assets/Constantia Bold.ttf');
+        /* IE9 Compat Modes */
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: top;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      body {
+        font-family: "Source Sans Pro", "helvetica", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-align: center;
+        font-size: 16px;
+        color: rgba(39,65,90,1);
+      }
+      h4 {
+        margin-bottom: 12px;
+        font-size: 1.25em;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      h5 {
+        font-size: 1.75em;
+      }
+      p {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        color: rgba(39,65,90,.9);
+        font-size: 1.25em;
+        line-height: 1.625em;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      body {
+        line-height: 1;
+      }
+      strong {
+        color: rgba(39,65,90,1);
+        font-weight: 600;
+      }
+      .plans {
+        background: #e7f2f0;
+      }
+      .layer {
+        clear: both;
+        width: 100%;
+        height: auto;
+        padding: 60px 7.5% 60px;
+        display: block;
+      }
+      .layer > section, .layer > article {
+        clear: both;
+        height: auto;
+        width: calc(100% - 400px);
+        margin: 0 auto;
+        display: block;
+      }
+      .third {
+        width: calc(33.33% - 43px);
+        margin: 0px 20px;
+        display: inline-block;
+      }
+      .plan-tier {
+        background: white;
+        vertical-align: baseline;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .lift {
+        position: relative;
+        -webkit-transition: all .075s ease-out;
+        -moz-transition: all .075s ease-out;
+        -o-transition: all .075s ease-out;
+        transition: all .075s ease-out;
+      }
+      .lift:hover {
+        top: -3px;
+        -webkit-box-shadow: 0 2px 6px rgba(39,65,90,.15);
+        -moz-box-shadow: 0 2px 6px rgba(39,65,90,.15);
+        box-shadow: 0 2px 6px rgba(39,65,90,.15);
+      }
+      .plan-tier h4 {
+        padding: 18px 0 15px;
+        margin: 0px;
+        background: #00a1ff;
+        color: white;
+      }
+      .plan-tier {
+        cursor: pointer;
+      }
+      .plan-tier sup.second{
+        top:0px;
+      }
+      .plan-tier sup {
+        position: relative;
+        font-family: 'Constantia Bold';
+        font-size: 45px;
+        top: 5px;
+      }
+      .plan-tier ul {
+        border-top: 2px solid #e7f2f0;
+      }
+      .plan-tier ul li {
+        padding: 25px 0;
+        font-size: 18px;
+        color: #656d73;
+        font-family: 'Myriad Pro';
+        border-bottom: 1px solid #f6f6f6;
+      }
+      sup {
+        vertical-align: top;
+      }
+      .plan-tier .plan-price {
+        font-size: 88px;
+        font-weight: 300;
+        padding: 0px 15px;
+        font-family: 'Constantia Bold';
+      }
+      .plan-tier .plan-price.custom {
+        font-size: 45px;
+        font-weight: 300;
+        padding: 0px 15px;
+        font-family: 'Constantia Bold';
+      }
+      .plan-tier button{
+        margin: 0px 20px;
+        text-align: center;
+        padding-top:20px;
+        padding-bottom: 20px;
+        width: calc(100% - 40px);
+        border: none;
+        border-radius: 5px;
+        background-color: #0ec06e;
+        color: white;
+        font-size: 20px;
+      }
+      .plan-tier p:last-child{
+        color: #0ec06e;
+      }
+      .plan-tier ul.custom li{
+        border:none;
+        padding-bottom: 26px;
+      }
+      .plan-tier ul li:last-child{
+        border:none;
+      }
+      .plan-tier ul.custom li:last-child{
+        padding-bottom: 25px;
+      }
+      .third.lift.plan-tier ul li i{
+        position: absolute;
+        left: 20px;
+      }
+      .third.lift.plan-tier ul li i.fa-check{
+        color:#72c732;
+      }
+      .third.lift.plan-tier ul li i.fa-close{
+        color:#db5c59;
+      }
+      .third.lift.plan-tier ul li{
+        position: relative;
+      }
+      .third.lift.plan-tier>h5{
+        padding-left: 35px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      div.frequently .faq_left{
+        width: 45px;
+        float: left;
+      }
+      div.frequently>div{
+        padding: 0px 200px;
+      }
+      div.frequently .faq_right{
+        width: calc(100% - 60px);
+        margin-left: 15px;
+        text-align: left;
+        float: right;
+      }
+      .third.lift.plan-tier>h5.custom{
+        height: 108px;
+        padding-top: 33px;
+        padding-left: 0px;
+      }
+      .plan-tier sub {
+        vertical-align: bottom;
+        position: relative;
+        left: -70px;
+        font-family: 'Constantia Bold';
+      }
+      .plan-tier .early-adopter-price {
+        color: #656d73;
+        background-color: #e7f2f0;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 0px;
+      }
+      p:first-of-type {
+        margin-top: 0;
+      }
+      small, del {
+        color: rgba(39,65,90,.5);
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+      s, strike, del {
+        text-decoration: line-through;
+      }
+      .layer {
+        padding-top: 96px;
+        padding-bottom: 96px;
+      }
+      .plan-tier.callout h6 {
+        width: 100%;
+        padding: 15px 0 14px;
+        background: #8dcf3f;
+        color: rgba(39,65,90,.5);
+        font-size: 1.25em;
+      }
+      .plan-tier.callout h4 {
+        background-color: #78b336;
+      }
+      #login-dp{
+        min-width: 250px;
+        padding: 14px 14px 0;
+        overflow:hidden;
+        background-color:rgba(255,255,255,.8);
+      }
+      #login-dp .help-block{
+        font-size:12px    
+      }
+      #login-dp .bottom{
+        background-color:rgba(255,255,255,.8);
+        border-top:1px solid #ddd;
+        clear:both;
+        padding:14px;
+      }
+      .pricenav.navbar{
+        background: white;
+        border: none;
+        padding: 20px 200px;
+        margin: 0px;
+      }
+      .best_offer{
+        text-align: center;
+        padding-top: 45px;
+        background-color: #e7f2f0;
+      }
+      .best_offer button{
+        border: none;
+        background-color: #ec8223;
+        width: 221px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        height: 39px;
+        padding-right: 30px;
+        color: white;
+        font-size: 16px;
+      }
+      .best_offer button i{
+        padding-right: 15px;
+      }
+      #navbar-collapse-1 li.button a:hover{
+        background: #0ec06e;
+        margin: 13px;
+        text-align: center;
+        padding: 12px;
+        width: 100px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+      }
+      #navbar-collapse-1 li.button a{
+        margin: 13px;
+        text-align: center;
+        padding: 12px;
+        width: 100px;
+        border: solid 1px black;
+        border-radius: 5px;
+      }
+      #navbar-collapse-1 li a{
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #2c343a;
+      }
+      .carousel-control.left,.carousel-control.right{
+        background:none;
+      }
+      .logo{
+        margin: 15px 0px;
+        height: 40px;
+      }
+      div.benefits,div.benefits div{
+        background-color: #25394e;
+      }
+      div.benefits h2,div.benefits p{
+        color: white;
+        font-weight: 100;
+      }
+      div.frequently h2,div#carousel-example-generic h2{
+        color: black;
+        font-weight: 100;
+        font-size: 45px;
+        height: 170px;
+        margin-bottom: 80px;
+        position: relative;
+        padding-top: 100px;
+      }
+      div.benefits h2{
+        font-size: 45px;
+        height: 170px;
+        position: relative;
+        padding-top: 100px;
+      }
+      div.benefits p.afterline{
+        padding:30px;
+        padding-bottom: 70px;
+      }
+      div.benefits p{
+        font-size: 18px;
+      }
+      .pricenav .navbar-nav>li>a{
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+      #login-dp .social-buttons{
+        margin:12px 0    
+      }
+      #login-dp .social-buttons a{
+        width: 49%;
+      }
+      #login-dp .form-group {
+        margin-bottom: 10px;
+      }
+      .btn-fb{
+        color: #fff;
+        background-color:#3b5998;
+      }
+      .btn-fb:hover{
+        color: #fff;
+        background-color:#496ebc 
+      }
+      .btn-tw{
+        color: #fff;
+        background-color:#55acee;
+      }
+      .btn-tw:hover{
+        color: #fff;
+        background-color:#59b5fa;
+      }
+      .layer.plans{
+        padding: 0px;
+        padding-bottom:100px;
+      }
+      .banner_sec{
+        background-image: url(images/banner_image.png);
+        background-size: initial;
+        background-position: center center;
+        text-align: center;
+        height: 309px;
+        padding-top: 100px;
+      }
+      .carousel-inner .item div.imageperson_1{
+        width: 140;
+        background-size: cover;
+        background-position: center center;
+        height: 140px;
+        background-image: url(images/img1.png);
+        position: absolute;
+        margin-left: calc(50% - 90px);
+        bottom: -70px;
+        border-radius: 50%;
+        border: solid 5px white;
+      }
+      #carousel-example-generic .carousel-caption{
+        position: relative;
+        background: white;
+        left: 0px;
+        right: 0px;
+        padding: 20px;
+        padding-bottom: 90px;
+      }
+      .carousel-inner .item div.imageperson_2{
+        width: 140;
+        background-size: cover;
+        background-position: center center;
+        height: 140px;
+        background-image: url(images/img2.png);
+        position: absolute;
+        margin-left: calc(50% - 90px);
+        bottom: -70px;
+        border-radius: 50%;
+        border: solid 5px white;
+      }
+      #carousel-example-generic .carousel-indicators li{
+        background-color: #d8d8d8;
+        width: 12px;
+        height: 12px;
+      }
+      #carousel-example-generic .carousel-indicators{
+        position: relative;
+        width: 100%;
+        left:0;
+        padding-left: 0;
+        margin-left: 0;
+        text-align: center;
+      }
+      #carousel-example-generic .carousel-indicators .active{
+        background-color: #153594;
+        width: 12px;
+        height: 12px;
+      }
+      .carousel-caption p.content{
+        margin:0px;
+        color: #656d73;
+        font-size: 16px;
+        font-family: 'Myriad Pro';
+        text-shadow: none;
+      }
+      .carousel-inner .name{
+        margin-top: 70px;
+        font-size: 21px;
+        color:#51759f;
+        margin-bottom: 0px;
+      }
+      .carousel-inner .verify{
+        font-size: 12px;
+        color:#656d73;
+        padding-bottom: 50px;
+      }
+      .carousel-inner .verify i{
+        font-size: 30px;
+        color: #0ec06e;
+        display: inline-block;
+      }
+      .carousel-inner .verify p{
+        display: inline-block;
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+      .carousel-inner .address{
+        margin:0px;
+        color: #656d73;
+        font-size: 16px;
+        font-weight: 100;
+        font-family: 'Myriad Pro';
+      }
+      .carousel-caption .comment{
+        text-align: left;
+        font-size: 70px;
+        height: 70px;
+        color: #dddddd;
+        font-family: 'Myriad Pro';
+        margin-bottom: 0px;
+      }
+      .carousel-inner .item div.imageperson_3{
+        width: 140;
+        background-size: cover;
+        background-position: center center;
+        height: 140px;
+        background-image: url(images/img3.png);
+        position: absolute;
+        margin-left: calc(50% - 90px);
+        bottom: -70px;
+        border-radius: 50%;
+        border: solid 5px white;
+      }
+      .copyright{
+        background-color: #12283f;
+        padding: 40px 20px;
+        color: #708396;
+        text-align: center;
+      }
+      .copyright i{
+        padding-left: 15px;
+      }
+      .footer{
+        background-color:#142c44;
+        display: inline-block;
+        width: 100%;
+        padding: 100px 200px;
+        text-align: left;
+      }
+      .footer .ultitle{
+        color: white;
+        font-size: 20px;
+        font-weight: 100;
+        position: relative;
+      }
+      .footer .ultitle:before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        width: 40px;
+        height: 3px;
+        background: #2c73a7;
+        margin: 0 0 -15px 0px;
+      }
+      .footer .office_address{
+        font-size: 16px;
+        color: white;
+        position: relative;
+        font-weight: 100;
+      }
+      .footer .office_address:before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 1px;
+        background: #42586d;
+        margin: 0 0 -15px 0px;
+      }
+      .footer ul li{
+        padding: 12px 0px;
+      }
+      .footer ul li a{
+        color: #708396;
+      }
+      .banner_sec h1{
+        color:white;
+        font-size: 56px;
+        font-family: 'Myriad Pro';
+        letter-spacing: 3px;
+      }
+      .benefits .bene>div{
+        width: 100px;
+        height: 130px;
+        text-align: center;
+        display: inline-block;
+      }
+      .benefits .bene .ben_title{
+        color:#3c92ca;
+        font-size: 20px;
+      }
+      .footer .mail{
+        color: #708396;
+        padding-left: 60px;
+        font-size: 16px;
+      }
+      div.benefits h2:before, div.frequently h2:before,  div#carousel-example-generic h2:before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        width: 70px;
+        height: 3px;
+        background: #0ec06e;
+        margin: 0 0 0 -29.5px;
+      }
+      .benefits .bene .ben_content{
+        color: #d7d7d7;
+        font-size: 16px;
+      }
+      .banner_sec p{
+        letter-spacing: 1px;
+        color:white;
+        font-size: 24px;
+        font-family: 'Myriad Pro';
+      }
+      .benefits .beneinner{
+        padding: 0px 200px;
+        display: inline-block;
+        margin-bottom: 100px;
+      }
+      #carousel-example-generic{
+        display: inline-block;
+        width: 100%;
+        padding: 0px 200px;
+        background-color:#f6f6f6;
+      }
+      .footer .real_address{
+        padding-top: 20px;
+        line-height: 45px;
+        color: #708396;
+        font-size: 16px;
+      }
+      @media(max-width:768px){
+        #carousel-example-generic{
+          padding: 0 20px;
+        }
+        .benefits .beneinner{
+          padding:0px;
+        }
+        div.frequently>div{
+          padding: 0px 30px;
+        }
+        div.frequently div.col-sm-12{
+          display: inline-block;
+          float: left;
+        }
+        #login-dp{
+          background-color: inherit;
+          color: #fff;
+        }
+        .banner_sec{
+          padding-top: 55px;
+        }
+        #login-dp .bottom{
+          background-color: inherit;
+          border-top:0 none;
+        }
+        .logo{
+          height: auto;
+          padding-left:25px;
+          width: 125px;
+        }
+        .pricenav.navbar{
+          padding: 20px;
+        }
+        .pricenav.navbar-inverse .navbar-toggle .icon-bar{
+          background-color: black;
+        }
+        .third {
+          width: 100%;
+          margin: 0px 20px;
+          margin-bottom: 30px;
+          display: inline-block;
+        }
+        .layer > section, .layer > article {
+          clear: both;
+          height: auto;
+          width: 400px;
+          margin: 0 calc(50% - 220px);
+          display: block;
+        }
+        .footer{
+          padding: 100px 20px;
+        }
+      }
+      @media(max-width:420px){
+        .banner_sec h1{
+          font-size: 36px;
+        }
+        .banner_sec p{
+          font-size: 20px;
+        }
+        .layer > section, .layer > article{
+          width: 300px;
+          margin: 0 calc(50% - 170px);
+        }
+        .plan-tier .plan-price{
+          font-size: 50px;
+          padding: 0px 5px;
+        }
+        .plan-tier sup{
+          font-size: 25px;
+        }
+        .plan-tier sub{
+          left: -40px;
+        }
+      }
+  %body
+    %nav.navbar.navbar-default.navbar-inverse.pricenav{:role => "navigation"}
+      .container-fluid
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %img.logo{:src => "images/logo.png"}/
+          %button.navbar-toggle.collapsed{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only
+              Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        / Collect the nav links, forms, and other content for toggling
+        #navbar-collapse-1.collapse.navbar-collapse
+          /
+            <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          %ul.nav.navbar-nav.navbar-right
+            %li.button
+              %a{:href => "#"}
+                Sign Up
+            %li.dropdown.button
+              %a{:href => "#"}
+                Login
+              /
+                <ul id="login-dp" class="dropdown-menu">
+                <li>
+                <div class="row">
+                <div class="col-md-12">
+                Login via
+                <div class="social-buttons">
+                <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                </div>
+                or
+                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+                <div class="checkbox">
+                <label>
+                <input type="checkbox"> keep me logged-in
+                </label>
+                </div>
+                </form>
+                </div>
+                <div class="bottom text-center">
+                New here ? <a href="#"><b>Join Us</b></a>
+                </div>
+                </div>
+                </li>
+                </ul>
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "#"}
+                About
+            %li
+              %a{:href => "#"}
+                Community
+            %li
+              %a{:href => "#"}
+                Pricing
+            %li
+              %a{:href => "#"}
+                WhyWipsty
+            %li
+              %a{:href => "#"}
+                Contact Us
+        / /.navbar-collapse
+      / /.container-fluid
+    .col-sm-12.banner_sec
+      %h1
+        Legal Pricing The Way It Should Be
+      %p
+        Great Legal Work at the Right Price
+    .col-sm-12.best_offer
+      %button
+        %i.fa.fa-star{"aria-hidden" => "true"}>
+        BEST OFFER
+    %section.layer.plans
+      %section
+        %section.third.lift.plan-tier{:onclick => "location.href='#';"}
+          %h4
+            BASIC
+          %h5
+            %sup.superscript
+              Lei
+            %span.plan-price
+              79
+            %sup.superscript.second
+              \.00
+            %sub
+              \/luna
+          %p.early-adopter-price
+            Billed every 6 months – save 20%
+          %ul
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Normal Listing
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Unlimited category listings
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Easy to use messaging system
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Accept payments from
+              = succeed "your" do
+                %br/
+            %li
+              %i.fa.fa-close{"aria-hidden" => "true"}>
+              Featured newsletter promotion
+            %li
+              %i.fa.fa-close{"aria-hidden" => "true"}>
+              Premium Listing
+              = succeed "(always" do
+                %br/
+          %button
+            BUY NOW
+          %p
+            SWITCH BILLING PLAN
+        %section.third.lift.plan-tier.callout{:onclick => "location.href='#';"}
+          %h4
+            PREMIUM
+          %h5
+            %sup.superscript
+              Lei
+            %span.plan-price
+              149
+            %sup.superscript.second
+              \.00
+            %sub
+              \/luna
+          %p.early-adopter-price
+            Billed every 6 months – save 20%
+          %ul
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Normal Listing
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Unlimited category listings
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Easy to use messaging system
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Accept payments from
+              = succeed "your" do
+                %br/
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Featured newsletter promotion
+            %li
+              %i.fa.fa-check{"aria-hidden" => "true"}>
+              Premium Listing
+              = succeed "(always" do
+                %br/
+          %button
+            BUY NOW
+          %p
+            SWITCH BILLING PLAN
+        %section.third.lift.plan-tier{:onclick => "location.href='#';"}
+          %h4
+            CUSTOM
+          %h5.custom
+            %span.plan-price.custom
+              Contact
+          %p.early-adopter-price
+            Billed every 6 months – save 20%
+          %ul.custom
+            %li
+               
+            %li
+               
+            %li
+               
+            %li
+               
+              = succeed "\u{a0}" do
+                %br/
+            %li
+               
+            %li
+               
+              = succeed "\u{a0}" do
+                %br/
+          %button
+            BUY NOW
+          %p
+            SWITCH BILLING PLAN
+        %div{:style => "clear: both"}
+    .benefits
+      .col-sm-12
+        %h2
+          Benefits
+        %p.afterline
+          Grow your practice with us , we connect you with clients in search of legal aid, growing your client base has never been easier
+        .beneinner
+          .col-md-3.col-sm-12.bene
+            %div
+              %img{:src => "images/icon1.png"}/
+            %p.ben_title
+              Easy to use messaging system
+            %p.ben_content
+              Communicate with your clients  via our messaging system, recive proposals from clients in need of legal help
+          .col-md-3.col-sm-12.bene
+            %div
+              %img{:src => "images/icon2.png"}/
+            %p.ben_title
+              We promote you
+            %p.ben_content
+              All the  premium listings go through our marketing engine and can recive up to 3x more clients
+          .col-md-3.col-sm-12.bene
+            %div
+              %img{:src => "images/icon3.png"}/
+            %p.ben_title
+              Your virtual office
+            %p.ben_content
+              Extend your practice and make Wipsty your own vitual office, we provide you with all the tools
+          .col-md-3.col-sm-12.bene
+            %div
+              %img{:src => "images/icon4.png"}/
+            %p.ben_title
+              Process Payments
+            %p.ben_content
+              Connect a PayPal account and process payments online from all your clients
+    .frequently
+      .col-sm-12
+        %h2
+          Frequently Asked Questions
+        .col-sm-12.col-md-6
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  Who are the lawyers on Wipsty?
+              .faq_content
+                %p
+                  Lawyers on Wipsty represent the finest law schools, law firms, and companies in the country. All verified attorneys have also passed our thorough screening process, through which we verify their background and their license to practice law.
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  When do i get paid?
+              .faq_content
+                %p
+                  Lawyers get paid after completing the work, though in some cases, lawyers may request a portion of the legal fees and/or filing fees prior to commencing work. The specifics of a lawyer's fee structure will be provided for in the initial proposal.
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  Are there any additional fees to use Wipsty?
+              .faq_content
+                %p
+                  There is a 3% processing fee from PayPal  on each transaction,  except this there are no other hidden fees, we believe in transparency and beeing upfront and honest with both our clients and lawyers
+        .col-sm-12.col-md-6
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  Is my information safe?
+              .faq_content
+                %p
+                  We use HTTPS encryption and 258 bits SSL certificates  to keep your information safe and secure,
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  Do i really need a PayPal account?
+              .faq_content
+                %p
+                  Yes, Wipsty has a built in PayPal integration that allows you to accept payments from your clients.  With PayPal you can process multiple types of credit cards and currencies, its very easy to set up, if you are having trouble with it contact us, we are always here to help
+          .col-sm-12
+            .faq_left
+              %img{:src => "images/question.png"}/
+            .faq_right
+              .faq_title
+                %p
+                  Can I cancel anytime?
+              .faq_content
+                %p
+                  Yes. You can deactivate your Wipsty membership at anytime.
+    #carousel-example-generic.carousel.slide
+      / Indicators
+      %h2
+        What Our Customer Says
+      / Wrapper for slides
+      .carousel-inner
+        / Slide
+        .item.active
+          .row
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_1
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_2
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_3
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+        / Slide
+        .item
+          .row
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_1
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_2
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_3
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+        / Slide
+        .item
+          .row
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_1
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_2
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+            .col-sm-6.col-xs-12.col-md-4
+              .carousel-caption
+                %p.comment
+                  “
+                %p.content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etsawsan. Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nulla commodo neque erat, vitae facilisis erat.
+                .imageperson_3
+              %p.name
+                JOHN DOE SMITH
+              %p.address
+                Los Angeles, CA
+              %h4.verify
+                %i.fa.fa-check-circle{"aria-hidden" => "true"}
+              %p
+                verified customer
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      / Controls
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+        %span.icon-prev
+      %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+        %span.icon-next
+    .footer
+      .col-xs-12.col-sm-6.col-md-3
+        %p.ultitle
+          Navigation
+        %ul
+          %li
+            %a
+              How it Works
+          %li
+            %a
+              Fow Lawyers
+          %li
+            %a
+              Free Legal Documents
+          %li
+            %a
+              Blog
+          %li
+            %a
+              Sitemap
+      .col-xs-12.col-sm-6.col-md-3
+        %p.ultitle
+          About
+        %ul
+          %li
+            %a
+              The Company
+          %li
+            %a
+              Careers
+          %li
+            %a
+              Customers
+          %li
+            %a
+              Privacy Policy
+          %li
+            %a
+              Terms of Service
+      .col-xs-12.col-sm-6.col-md-3
+        %p.ultitle
+          More legal resources
+        %ul
+          %li
+            %a
+              Pricing
+          %li
+            %a
+              Lawyer Directory
+          %li
+            %a
+              Legal help articles
+          %li
+            %a
+              Legal dictionary
+          %li
+            %a
+              Everyday law blog
+      .col-xs-12.col-sm-6.col-md-3
+        %p.ultitle
+          Contact us
+        %p.mail
+          Mail
+        %p.office_address
+          OFFICE ADDRESS
+        %p.real_address
+          Kemp House, 160 City Road,
+          = succeed "London," do
+            %br/
+    .copyright
+      Copyright © 2016 Wipsty. All rights reserved.
+      %i.fa.fa-facebook{"aria-hidden" => "true"}
+      %i.fa.fa-twitter{"aria-hidden" => "true"}
+      %i.fa.fa-google-plus{"aria-hidden" => "true"}
+      %i.fa.fa-linkedin{"aria-hidden" => "true"}
